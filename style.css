@@ -1,0 +1,64 @@
+.blockTable {
+  max-width: 1600px;
+  min-width: 421px;
+  /* display: flex; */
+
+}
+
+.tableRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.tableHead {
+  font-weight: bold;
+  font-size: large;
+  display: flex;
+  flex-direction: row;
+
+}
+
+.tableHead>* {
+  background-color: #EDEDED
+}
+
+.ceil {
+  width: 10%;
+  border: 1px solid gray;
+  overflow: hidden;
+}
+
+.ceil:hover:not(.tableHead .ceil) {
+  background-color: aquamarine;
+}
+
+@media screen and (max-width: 420px) {
+  .ceil {
+    width: 100%;
+    flex-basis: 100%;
+    /* Устанавливаем ширину ячейки на 100% при малых экранах */
+    border-right: none;
+    display: flex;
+    flex-direction: column;
+
+    /* Убираем правую границу, так как она не нужна в одной колонке */
+  }
+
+  .tableRow {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tableHead {
+    display: none;
+
+  }
+
+  .ceil::before {
+    content: attr(data-label);
+    text-transform: bold;
+    font-size: large;
+    font-weight: bold;
+    background-color: #EDEDED;
+  }
+}
