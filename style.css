@@ -1,6 +1,74 @@
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+.radioColumn {
+  width: fit-content;
+  border: 1px solid #666;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  margin-bottom: 20px;
+}
+
+button {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  border: 1px solid #775DA6;
+  border-radius: 8px;
+
+  background-color: white;
+  padding: 7px 12px;
+  color: #775DA6
+}
+
+button:hover {
+  background-color: #775DA6;
+  color: white;
+  transition: 0.5s;
+}
+
+.inputText {
+  border: 1px solid #DCDCDC;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: 'Raleway', sans-serif;
+  padding: 8px 0 8px 12px;
+}
+
+
+.radioColumn input {
+  display: none;
+}
+
+.radioColumn label {
+  font-family: sans-serif;
+  padding: 10px 16px;
+  border-right: 1px solid #ccc;
+  cursor: pointer;
+
+}
+
+.radioColumn label:last-of-type {
+  border-right: 0;
+}
+
+.radioColumn label:hover {
+  background: #eee;
+}
+
+.radioColumn input:checked+label {
+  background: hsla(261, 29%, 51%, 12%);
+  color: #775DA6;
+}
+
 .blockTable {
+  /* font-family: sans-serif; */
   max-width: 1600px;
-  min-width: 421px;
+  /* min-width: 421px; */
   /* display: flex; */
 
 }
@@ -19,20 +87,27 @@
 }
 
 .tableHead>* {
-  background-color: #EDEDED
+  background: hsla(261, 29%, 51%, 12%);
+  padding: 14px 10px;
 }
 
 .ceil {
   width: 10%;
   border: 1px solid gray;
+  padding: 5px 8px;
   overflow: hidden;
 }
 
 .ceil:hover:not(.tableHead .ceil) {
-  background-color: aquamarine;
+  background: hsla(261, 29%, 51%, 70%);
 }
 
 @media screen and (max-width: 420px) {
+  .blockTable {
+    width: 100%;
+    min-width: unset;
+  }
+
   .ceil {
     width: 100%;
     flex-basis: 100%;
@@ -40,7 +115,7 @@
     border-right: none;
     display: flex;
     flex-direction: column;
-
+    box-sizing: border-box;
     /* Убираем правую границу, так как она не нужна в одной колонке */
   }
 
@@ -54,11 +129,18 @@
 
   }
 
+  .radioColumn {
+    flex-direction: column;
+
+  }
+
   .ceil::before {
+    color: black;
     content: attr(data-label);
     text-transform: bold;
     font-size: large;
     font-weight: bold;
-    background-color: #EDEDED;
+    background: hsla(261, 29%, 51%, 12%);
+    border: 2px solid white;
   }
 }
